@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  junior-java-backend-assignment:
+    build:
+      context: '.'
+    ports:
+      - '8080:8080/tcp'
+  postgres:
+    image: 'postgres:9.6'
+    environment:
+      - 'POSTGRES_DB=assignment'
+      - 'POSTGRES_USER=assignment'
+      - 'POSTGRES_PASSWORD=abc123'
+    volumes:
+      - './database:/docker-entrypoint-initdb.d'
+    ports:
+      - '5432:5432/tcp'

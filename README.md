@@ -1,1 +1,6 @@
-# junior-java-backend-assignment
+README
+======
+
+[Requirements](Requirements.md)
+
+Your documentation goes here.
