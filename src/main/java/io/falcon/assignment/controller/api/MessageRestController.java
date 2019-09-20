@@ -41,7 +41,7 @@ public class MessageRestController {
      *
      * @return list of all the messages
      */
-    @GetMapping("/message/all")
+    @GetMapping("/messages")
     public ResponseEntity getMessage() {
         List<Message> messages = messageRepository.findAll();
         return ResponseEntity.ok(messages);
