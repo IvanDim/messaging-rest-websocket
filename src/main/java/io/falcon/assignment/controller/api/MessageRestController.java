@@ -38,6 +38,7 @@ public class MessageRestController {
     /**
      * An endpoint to retrieve all messages persisted in the database
      * The entities enriched with the longest_palindrome_size property
+     *
      * @return list of all the messages
      */
     @GetMapping("/message/all")
@@ -51,15 +52,15 @@ public class MessageRestController {
      * broadcasting it through Websockets for listening clients.
      * The endpoint rejects invalid payloads.
      *
-     * @param message
-     * @return
+     * @param message JSON payload
+     * @return ResponseEntity OK / Bad request + violationList
      */
     @PostMapping("/post")
     public ResponseEntity postMessage(@RequestBody Message message) {
 
         // Validating the format of the JSON payload
         Set<ConstraintViolation<Message>> violations = validator.validate(message);
-        violations.addAll(validator.validateProperty(message,"timestamp"));
+        violations.addAll(validator.validateProperty(message, "timestamp"));
 
         // Check if there are any violations
         if (!violations.isEmpty()) {
