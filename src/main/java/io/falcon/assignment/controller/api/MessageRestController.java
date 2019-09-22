@@ -41,7 +41,7 @@ public class MessageRestController {
      *
      * @return list of all the messages
      */
-    @GetMapping("/messages")
+    @GetMapping("/message/all")
     public ResponseEntity getMessage() {
         List<Message> messages = messageRepository.findAll();
         return ResponseEntity.ok(messages);
@@ -55,7 +55,7 @@ public class MessageRestController {
      * @param message JSON payload
      * @return ResponseEntity OK / Bad request + violationList
      */
-    @PostMapping("/post")
+    @PostMapping("/message")
     public ResponseEntity postMessage(@RequestBody Message message) {
 
         // Validating the format of the JSON payload
