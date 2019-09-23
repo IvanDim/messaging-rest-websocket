@@ -64,17 +64,17 @@ It really depends on the usage of the system.
 
 ## Installation
 
-To build the project, use the provided Maven scripts:
-```
+To build the project + run the tests, use the provided Maven scripts:
+```   
 mvnw clean package
 ```
-To run the project in Docker run with tests:
+To build the project without running the tests, use the provided Maven scripts:
+```   
+mvnw clean package -DskipTests
+```
+To run the project in Docker:
 ```
 docker-compose up
-```
-To run the project in Docker run without tests:
-```
-docker-compose up -DskipTests
 ```
 
 ## Testing
