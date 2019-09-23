@@ -68,9 +68,13 @@ To build the project, use the provided Maven scripts:
 ```
 mvnw clean package
 ```
-To run the project in Docker run:
+To run the project in Docker run with tests:
 ```
 docker-compose up
+```
+To run the project in Docker run without tests:
+```
+docker-compose up -DskipTests
 ```
 
 ## Testing
