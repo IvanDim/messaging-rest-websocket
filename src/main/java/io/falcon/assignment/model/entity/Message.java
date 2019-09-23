@@ -2,6 +2,7 @@ package io.falcon.assignment.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.falcon.assignment.utils.LongestPalindromeSize;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
@@ -15,7 +16,9 @@ import java.util.Date;
 @Entity
 @Table(name = "messages")
 public class Message {
+
     private long id;
+
     private String content;
 
     private Timestamp timestamp;
@@ -78,7 +81,8 @@ public class Message {
     @ApiModelProperty(hidden = true)
     @JsonGetter(value = "longest_palindrome_size")
     public Integer getLongestPalindromeSize() {
-        return longestPalindromeSize;
+        LongestPalindromeSize lps = new LongestPalindromeSize();
+        return lps.longestPalindromicSubstringLinear(this.content);
     }
 
     public void setLongestPalindromeSize(Integer longestPalindromeSize) {
