@@ -1,5 +1,6 @@
 package io.falcon.assignment.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -18,6 +19,8 @@ public class Message {
     private String content;
 
     private Timestamp timestamp;
+
+    private Integer longestPalindromeSize;
 
     public Message() {
     }
@@ -66,6 +69,20 @@ public class Message {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = parseTimestamp(timestamp);
+    }
+
+    // I don't store the longest palindrome size for every content in the database
+    // so this properties is not mapped to a column
+    // I hide it in the example POST request in the Swagger documentation, but I dont ignore it using jackson (like "id"),
+    // because I need it in my responses of the GET requests
+    @ApiModelProperty(hidden = true)
+    @JsonGetter(value = "longest_palindrome_size")
+    public Integer getLongestPalindromeSize() {
+        return longestPalindromeSize;
+    }
+
+    public void setLongestPalindromeSize(Integer longestPalindromeSize) {
+        this.longestPalindromeSize = longestPalindromeSize;
     }
 
     /**

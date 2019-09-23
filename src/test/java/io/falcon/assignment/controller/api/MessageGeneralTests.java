@@ -153,7 +153,8 @@ public class MessageGeneralTests {
                 .andExpect(status().isOk());
 
         // Check if the message is received on the websocket end
-        Assert.assertNotNull(blockingQueue.poll(1, SECONDS));
+        String response = blockingQueue.poll(1, SECONDS);
+        Assert.assertNotNull(response);
     }
 
     // Contract to handle a STOMP frame.
