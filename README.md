@@ -62,6 +62,14 @@ It really depends on the usage of the system.
   more suitable.
                                       
 
+## Used technologies
+
+* Spring Boot
+* PostgreSQL
+* Hibernate implementation of JPA
+* Embedded PostgreSQL driver for testing
+* Springfox (implementation of Swagger)
+
 ## Installation
 
 To build the project + run the tests, use the provided Maven scripts:
@@ -77,7 +85,14 @@ To run the project in Docker:
 docker-compose up
 ```
 
-## Testing
+## Run tests
+
+To run all the tests of the project:
+```
+mvnw test
+```
+
+## How to use
 
 * Run the project
 
